@@ -1,6 +1,5 @@
 import { getLocalStorage, setLocalStorage } from './utils.mjs';
 
-import ProductDetails from './ProductDetails.mjs';
 
 function renderCartContents() {
   const cartItems = getLocalStorage('so-cart');
@@ -23,6 +22,7 @@ function renderCartContents() {
     productList.innerHTML = '<p>Your cart is empty.</p>';
     cartFooter.classList.add('hide');
   }
+  setLocalStorage('so-cart', cartItems);
 }
 
 function cartItemTemplate(item) {
