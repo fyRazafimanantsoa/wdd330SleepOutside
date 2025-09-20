@@ -20,6 +20,24 @@ export function setClick(selector, callback) {
     callback();
   });
   qs(selector).addEventListener('click', callback);
+<<<<<<< HEAD
+=======
+}
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get(param);
+  return product
+}
+
+export function renderListWithTemplate(template, parentElement, list, position = 'afterbegin', clear = false) {
+  const htmlStrings = list.map(template);
+  // if clear is true we need to clear out the contents of the parent.
+  if (clear) {
+    parentElement.innerHTML = '';
+  }
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
+>>>>>>> cb08333 (Week 2 team activities)
 }
 
 export function getParam(param){
