@@ -1,19 +1,17 @@
-<<<<<<< HEAD
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
-=======
-import { setLocalStorage, get } from "./utils.mjs";
->>>>>>> 5c03992a2cb73b9b3c74e57674775244d3bfa89f
 import ProductData from "./ProductData.mjs";
+import getParam from "./utils.mjs";
+import ProductDetails from "./ProductDetails.mjs";
+
+const product = new ProductDetails(productId, dataSource);
+product.init();
 
 const dataSource = new ProductData("tents");
-const productId = getParam('product');
+const productId = getParam("product");
 
 console.log(dataSource.findProductById(productId));
 
-function addProductToCart(product) {
-  const items = getLocalStorage("so-cart") || [];
-  items.push(product);
-  setLocalStorage("so-cart", items);
+export function addProductToCart(product) {
+  
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
