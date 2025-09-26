@@ -1,25 +1,24 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
-import { getParam } from '../js/utils.mjs';
-import ProductData from '../js/ProductData.mjs';
-import ProductDetails from '../js/ProductDetails.mjs';
+import getParam from "./utils.mjs";
+import ProductDetails from "./ProductDetails.mjs";
 
-const dataSource = new ProductData('tents');
-const productID = getParam('product');
-
-const product = new ProductDetails(productID, dataSource);
+const product = new ProductDetails(productId, dataSource);
 product.init();
 
-function addProductToCart(product) {
-  const items = getLocalStorage("so-cart") || [];
-  items.push(product);
-  setLocalStorage("so-cart", items);
-/*async function addToCartHandler(e) {
-    const product = await dataSource.findProductById(e.target.dataset.id);
-    addProductToCart(product);
+const dataSource = new ProductData("tents");
+const productId = getParam("product");
+
+console.log(dataSource.findProductById(productId));
+
+export function addProductToCart(product) {
+  
+}
+// add to cart button event handler
+async function addToCartHandler(e) {
+  const product = await dataSource.findProductById(e.target.dataset.id);
+  addProductToCart(product);
 }
 // add listener to Add to Cart button
 document
-  .getElementById('addToCart')
-  .addEventListener('click', addToCartHandler);
-*/
+  .getElementById("addToCart")
+  .addEventListener("click", addToCartHandler);
