@@ -279,3 +279,24 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.product_category {
+  align-content: center; 
+  width: 100%;
+}
+
+.product_category ul {
+  display: flex;
+  height: auto;
+  width: fit-content; 
+  margin: 0 auto; 
+  padding: 0;
+}
+
+.product_category ul li {
+  list-style: none;
+  margin-left: 2rem;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+}
