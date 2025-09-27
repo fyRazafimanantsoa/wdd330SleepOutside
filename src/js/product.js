@@ -9,12 +9,12 @@ const productID = getParam('product');
 const product = new ProductDetails(productID, dataSource);
 product.init();
 
-function addProductToCart(product) {
+function addProductToCart(productToAdd) {
   const items = getLocalStorage('so-cart') || [];
-  items.push(product);
+  items.push(productToAdd);
   setLocalStorage('so-cart', items);
 
-
+}
 
 async function addToCartHandler(e) {
     const products = await dataSource.findProductById(e.target.dataset.id);
@@ -26,4 +26,3 @@ document
   .getElementById('addToCart')
   .addEventListener('click', addToCartHandler);
 
-}
